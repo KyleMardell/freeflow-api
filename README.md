@@ -128,3 +128,7 @@ When it came to beginning the project after conceptualisation I wanted to use an
 ## Deployment
 
 ## Credits
+
+### Django email field
+
+I wanted to add an email field to the profile model when starting the project. After some light research I found Django has a built in email field that conducts basic email validation checks such as an '@' and a '.' after. [Email field documentation](https://www.geeksforgeeks.org/emailfield-django-models/)
