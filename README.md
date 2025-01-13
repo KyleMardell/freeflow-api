@@ -132,3 +132,7 @@ When it came to beginning the project after conceptualisation I wanted to use an
 ### Django email field
 
 I wanted to add an email field to the profile model when starting the project. After some light research I found Django has a built in email field that conducts basic email validation checks such as an '@' and a '.' after. [Email field documentation](https://www.geeksforgeeks.org/emailfield-django-models/)
+
+### Django decimal field
+
+As I wanted to add an hourly rate and an amount of time in hours, I needed to add a field to my models that contain numbers. I used the decimal field as it also has the use of a max digits and decimal places, which was perfect for an hourly rate and amount of time. [Decimal field documentation](https://www.geeksforgeeks.org/decimalfield-django-models/)
