@@ -57,6 +57,7 @@ INSTALLED_APPS = [
 
     'profiles',
     'projects',
+    'custom_tasks',
 ]
 
 MIDDLEWARE = [
