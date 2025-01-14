@@ -10,5 +10,7 @@ class ProfileDetail(generics.RetrieveUpdateAPIView):
     Retrieve or update a profile only if you're the owner.
     """
     permission_classes = [IsOwner]
-    queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
+
+    def get_queryset(self):
+        return Profile.objects.filter(owner=self.request.user)
