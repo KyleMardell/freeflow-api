@@ -4,6 +4,9 @@ from .models import Project
 from .serializers import ProjectSerializer
 
 class ProjectList(generics.ListCreateAPIView):
+    """
+    List projects or create a project
+    """
     serializer_class = ProjectSerializer
     permission_classes = [permissions.IsAuthenticated]
 
