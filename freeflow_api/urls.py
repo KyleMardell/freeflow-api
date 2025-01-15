@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('profiles.urls')),
     path('', include('projects.urls')),
     path('', include('custom_tasks.urls')),
+    path('', include('tasks.urls')),
 ]
