@@ -12,8 +12,9 @@ class ProjectList(generics.ListCreateAPIView):
 
     filter_backends = [
         filters.SearchFilter,
+        filters.OrderingFilter,
     ]
-    filterset_fields = [
+    ordering_fields = [
         'status',
         'due_date'
     ]
