@@ -57,9 +57,9 @@ As I have used project tracking apps without a costs feature before, I knew the 
 ### Database
 When designing the Free Flow app I wanted to create a database schema that left room for stretch goals but also creating a solid schema was imperative. With this in mind, I spent a reasonable amount of time to ensure my database schema would not need any corrections once I began to code, as this could take up unnecessary time required to complete rhe project in time. I used an example of my previous project database schema and [Excalidraw]() to create my schema and double check it before beginning to code. I also used my wireframe designs of each page to understand the fields that would be required in each database model. Visualising forms and pages helped to write down the required fields of each model and make sure nothing was missing or overlooked.
 
-After designing and checking my database schema I only needed 3 custom models or 4 total, including the user model. The 3 custom models being project, task and custom task. These models would allow plenty of functionality in the app while keeping to the scope of both an MVP and the project time scale. I had considered adding more fields to each model as well as other models I could incorporate, but in trying to keep to the scope of the project they seemed unnecessary or simply too ambitious for this project, although I would like to add further features in the future. Some of the future features can be found further below.
+After designing and checking my database schema I only needed 4 custom models or 5 total, including the user model. The 4 custom models being profile, project, task and custom task. These models would allow plenty of functionality in the app while keeping to the scope of both an MVP and the project time scale. I had considered adding more fields to each model as well as other models I could incorporate, but in trying to keep to the scope of the project they seemed unnecessary or simply too ambitious for this project, although I would like to add further features in the future. Some of the future features can be found further below.
 
-The core of the schema is the user. I will be using the Django Rest Framework that has user authentication and therefore a user model automatically generated when using Django auth. In contrast to my previous projects, I want to make the users first and last name as well as username required, as I may use it when generating reports. This will provide a more professional look for invoicing or reports.
+The core of the schema is the user. I will be using the Django Rest Framework that has user authentication and therefore a user model automatically generated when using Django auth. When implementing the profile model, I wanted a profile instance to be created automatically when a user signs up so every user has a profile. This profile will hold information about the user/freelancer or their business and will be primarily used to create a report business header. This will provide a more professional look for invoicing or reports.
 
 The user can create a project that will contain a title, brief, hourly rate and completion date. I wanted the app to have a reasonable amount of features without being overloaded with things that are unnecessary or not generally used and therefore wanted to keep the model fields as simple as possible, while still being able to provide the required features. I considered adding things such as a client name or contact details, but this type of information can be contained in the brief and allows for more versatility while keeping to a relatively simple model.
 
@@ -122,6 +122,25 @@ When it came to beginning the project after conceptualisation I wanted to use an
 ### Defensive programming
 
 ### Future features
+
+## Development
+
+When it came to the development of the app, using a Django back end and a React front end provided a large amount of functionality. As this was the chosen tech stack, most of the development was done using a gitpod workspace and Google Chrome developer tools. Once I had a solid design and database model in place I began by developing the back end API in Django, carrying out full manual testing before deployment to ensure there were no errors or known bugs before beginning to develop the front end.
+
+### Django API
+
+The back end API is made using the Django rest framework amongst s number of other helper packages. There are 4 custom models with corresponding serializers, views and urls. There are models for profiles, projects, tasks, and custom tasks. A user profile is generated automatically when a user signs up and all other models have full C.R.U.D functionality using Django's rest framework API views. 
+
+#### Profile model
+The profile model contains user input fields for name, bio, email address, phone number, and profile image. I chose these fields as the app is a project tracker that will generate reports or invoices and having this type of information on one of these documents, provides both a professional look and adheres to general industry standards. There are additional fields contained in the model foe user id as a foreign key as well as auto generated created on and updated on time fields.
+As the profile model is generated when a user signs up, the user input fields are all optional. This means a user can only edit a profile and cannot create or delete one without creating or deleting the user account.
+
+#### Project model
+The project model contains user input fields for title, brief, hourly rate, due date and status. A projects status can be set as draft, active or complete. I chose to add an hourly rate in order to add functionality for estimating and calculating a projects costs. The only required field is the title and all other fields are optional. This means a user can quickly create a new project without needing to enter all the information at once, meaning it can be updated later. This will also provide a better user experience as a user may want to quickly put together a project to give a client an "on the fly" estimate.
+
+#### Custom tasks model
+
+#### Tasks model
 
 ## Testing
 
