@@ -129,7 +129,7 @@ When it came to the development of the app, using a Django back end and a React 
 
 ### Django API
 
-The back end API is made using the Django rest framework amongst s number of other helper packages. There are 4 custom models with corresponding serializers, views and urls. There are models for profiles, projects, tasks, and custom tasks. A user profile is generated automatically when a user signs up and all other models have full C.R.U.D functionality using Django's rest framework API views. 
+The back end API is made using the Django rest framework as well as a number of other helper packages. There are 4 custom models with corresponding serializers, views and urls. There are models for profiles, projects, tasks, and custom tasks. A user profile is generated automatically when a user signs up and all other models have full C.R.U.D functionality using Django's rest framework API views. 
 
 #### Profile model
 The profile model contains user input fields for name, bio, email address, phone number, and profile image. I chose these fields as the app is a project tracker that will generate reports or invoices and having this type of information on one of these documents, provides both a professional look and adheres to general industry standards. There are additional fields contained in the model foe user id as a foreign key as well as auto generated created on and updated on time fields.
@@ -139,10 +139,13 @@ As the profile model is generated when a user signs up, the user input fields ar
 The project model contains user input fields for title, brief, hourly rate, due date and status. A projects status can be set as draft, active or complete. I chose to add an hourly rate in order to add functionality for estimating and calculating a projects costs. The only required field is the title and all other fields are optional. This means a user can quickly create a new project without needing to enter all the information at once, meaning it can be updated later. This will also provide a better user experience as a user may want to quickly put together a project to give a client an "on the fly" estimate.
 
 #### Custom tasks model
+The custom tasks model contains user input fields for title, description and estimated time. The remaining fields of frequency, average, longest and quickest times will be used to update when a task has been completed that has used a custom task template. This means the user can see how many times a custom task template has been used and its time related analytical data with the custom task model fields. This in turn should lead to better estimation on projects through task data. By knowing the average time taken to complete a task across a given frequency, the user can the update the estimated time accordingly.
 
 #### Tasks model
+The tasks model contains user input fields for title, description, due date, estimated time, actual time, status and custom task id.  This model provides all the basic features to track a tasks and projects progress, also with the use of a custom task id the user can track when a custom task has been used for updating the custom task data. With tasks being the core of the app, I wanted to keep the model as simple as possible, while offering the features for analytics and therefore tried to use a small amount of fields that offer a good amount of functionality.
 
 ## Testing
+
 
 ## Deployment
 
