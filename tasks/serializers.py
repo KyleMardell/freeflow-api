@@ -1,7 +1,15 @@
+from django.contrib.humanize.templatetags.humanize import naturaltime
 from rest_framework import serializers
 from tasks.models import Task
 
 class TaskSerializer(serializers.ModelSerializer):
+
+
+    updated_at = serializers.SerializerMethodField()
+
+
+    def get_updated_at(self, obj):
+        return naturaltime(obj.updated_at)
 
     class Meta:
         model = Task

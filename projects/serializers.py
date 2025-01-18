@@ -1,8 +1,13 @@
+from django.contrib.humanize.templatetags.humanize import naturaltime
 from rest_framework import serializers
 from projects.models import Project
 
 class ProjectSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
+    updated_at = serializers.SerializerMethodField()
+
+    def get_updated_at(self, obj):
+        return naturaltime(obj.updated_at)
 
     def validate_hourly_rate(self, value):
         if value is not None and value < 0:
