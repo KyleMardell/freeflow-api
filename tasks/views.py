@@ -6,8 +6,9 @@ from .serializers import TaskSerializer
 
 class TaskList(generics.ListCreateAPIView):
     """
-    Lists tasks or create a task
-
+    Lists tasks or create a task only if you're the owner.
+    Search by title or description
+    Order by due date, status or estimated time.
     """
     serializer_class = TaskSerializer
     permission_classes = [permissions.IsAuthenticated]
@@ -31,12 +32,20 @@ class TaskList(generics.ListCreateAPIView):
         return Task.objects.filter(project=project)
 
     def perform_create(self, serializer):
+        """
+        Adds the project id from the URL args as the
+        tasks project id.
+        """
         project = self.kwargs['project_id']
         project_instance = Project.objects.get(id=project)
         serializer.save(project=project_instance)
 
 
 class TaskDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Retrieve edit or delete a task
+    only if you're the owner.
+    """
     serializer_class = TaskSerializer
     permission_classes = [IsProjectOwner]
     

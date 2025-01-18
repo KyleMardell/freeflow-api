@@ -3,10 +3,11 @@ from rest_framework import serializers
 from tasks.models import Task
 
 class TaskSerializer(serializers.ModelSerializer):
-
-
+    """
+    Task serializer.
+    Adds natural time to updated at
+    """
     updated_at = serializers.SerializerMethodField()
-
 
     def get_updated_at(self, obj):
         return naturaltime(obj.updated_at)

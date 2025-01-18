@@ -3,6 +3,11 @@ from rest_framework import serializers
 from projects.models import Project
 
 class ProjectSerializer(serializers.ModelSerializer):
+    """
+    Project serializers
+    OWner as read only field
+    Adds natural time to updated at
+    """
     owner = serializers.ReadOnlyField(source='owner.username')
     updated_at = serializers.SerializerMethodField()
 
@@ -10,6 +15,9 @@ class ProjectSerializer(serializers.ModelSerializer):
         return naturaltime(obj.updated_at)
 
     def validate_hourly_rate(self, value):
+        """
+        Checks the hourly rate is a positive number
+        """
         if value is not None and value < 0:
             raise serializers.ValidationError("Hourly rate cannot be a negative number.")
         return value

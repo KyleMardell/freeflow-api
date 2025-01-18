@@ -3,6 +3,9 @@ from rest_framework.response import Response
 
 @api_view()
 def root_route(request):
+    """
+    Root route welcome message for the API homepage.
+    """
     return Response({
         "message": "Welcome to the Free-Flow API!"
     })

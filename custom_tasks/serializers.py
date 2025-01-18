@@ -2,6 +2,10 @@ from rest_framework import serializers
 from custom_tasks.models import CustomTask
 
 class CustomTaskSerializer(serializers.ModelSerializer):
+    """
+    Custom task serializer.
+    Owner as read only field.
+    """
     owner = serializers.ReadOnlyField(source='owner.username')
 
     

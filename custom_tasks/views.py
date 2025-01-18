@@ -6,8 +6,10 @@ from .serializers import CustomTaskSerializer
 
 class CustomTaskList(generics.ListCreateAPIView):
     """
-    Lists custom tasks or create a custom task
-
+    Lists custom tasks or create a custom task only 
+    if you're the owner.
+    Search by title or description
+    Order by frequency, average or estimated time.
     """
     serializer_class = CustomTaskSerializer
     permission_classes = [permissions.IsAuthenticated]
@@ -30,10 +32,17 @@ class CustomTaskList(generics.ListCreateAPIView):
         return CustomTask.objects.filter(owner=self.request.user)
 
     def perform_create(self, serializer):
+        """
+        Adds the request user as the custom task owner
+        """
         serializer.save(owner=self.request.user)
 
 
 class CustomTaskDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Retrieve edit or delete a custom task
+    only if you're the owner.
+    """
     serializer_class = CustomTaskSerializer
     permission_classes = [IsOwner]
 

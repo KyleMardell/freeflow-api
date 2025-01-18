@@ -5,7 +5,8 @@ from .serializers import ProjectSerializer
 
 class ProjectList(generics.ListCreateAPIView):
     """
-    List projects or create a project
+    List projects or create a project only 
+    if you're the owner. 
     """
     serializer_class = ProjectSerializer
     permission_classes = [permissions.IsAuthenticated]
@@ -27,10 +28,17 @@ class ProjectList(generics.ListCreateAPIView):
         return Project.objects.filter(owner=self.request.user)
 
     def perform_create(self, serializer):
+        """
+        Adds the request user as the custom task owner
+        """
         serializer.save(owner=self.request.user)
 
 
 class ProjectDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Retrieve edit or delete a project
+    only if you're the owner.
+    """
     serializer_class = ProjectSerializer
     permission_classes = [IsOwner]
     
