@@ -68,6 +68,7 @@ ALLOWED_HOSTS = [
 
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-kylemardell-freeflowapi-81cqioz7wky.ws.codeinstitute-ide.net',
+    os.environ.get('TRUSTED_ORIGIN'),
 ]
 
 
