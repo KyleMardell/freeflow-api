@@ -63,12 +63,11 @@ DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
     '8000-kylemardell-freeflowapi-81cqioz7wky.ws.codeinstitute-ide.net',
-    'https://freeflow-api-5d3396ab0611.herokuapp.com/',
+    os.environ.get('ALLOWED_HOST'),
     ]
 
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-kylemardell-freeflowapi-81cqioz7wky.ws.codeinstitute-ide.net',
-    'https://freeflow-api-5d3396ab0611.herokuapp.com/',
 ]
 
 
