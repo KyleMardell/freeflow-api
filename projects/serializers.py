@@ -2,6 +2,7 @@ from django.contrib.humanize.templatetags.humanize import naturaltime
 from rest_framework import serializers
 from projects.models import Project
 
+
 class ProjectSerializer(serializers.ModelSerializer):
     """
     Project serializers
@@ -19,9 +20,11 @@ class ProjectSerializer(serializers.ModelSerializer):
         Checks the hourly rate is a positive number
         """
         if value is not None and value < 0:
-            raise serializers.ValidationError("Hourly rate cannot be a negative number.")
+            raise serializers.ValidationError(
+                "Hourly rate cannot be a negative number."
+            )
         return value
-    
+
     class Meta:
         model = Project
         fields = [

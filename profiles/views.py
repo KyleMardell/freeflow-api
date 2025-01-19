@@ -4,7 +4,6 @@ from .models import Profile
 from .serializers import ProfileSerializer
 
 
-
 class ProfileDetail(generics.RetrieveUpdateAPIView):
     """
     Retrieve or update a profile only if you're the owner.

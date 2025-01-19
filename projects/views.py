@@ -3,10 +3,11 @@ from freeflow_api.permissions import IsOwner
 from .models import Project
 from .serializers import ProjectSerializer
 
+
 class ProjectList(generics.ListCreateAPIView):
     """
-    List projects or create a project only 
-    if you're the owner. 
+    List projects or create a project only
+    if you're the owner.
     """
     serializer_class = ProjectSerializer
     permission_classes = [permissions.IsAuthenticated]
@@ -41,6 +42,6 @@ class ProjectDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     serializer_class = ProjectSerializer
     permission_classes = [IsOwner]
-    
+
     def get_queryset(self):
         return Project.objects.filter(owner=self.request.user)

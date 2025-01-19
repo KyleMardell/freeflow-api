@@ -14,12 +14,28 @@ class Task(models.Model):
     ]
 
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
-    custom_task = models.ForeignKey(CustomTask, on_delete=models.SET_NULL, null=True)
+    custom_task = models.ForeignKey(
+        CustomTask,
+        on_delete=models.SET_NULL,
+        null=True
+    )
     title = models.CharField(max_length=255)
-    description = models.TextField(blank=True)    
-    estimated_time = models.DecimalField(max_digits=5, decimal_places=2, default=0.0)
-    actual_time = models.DecimalField(max_digits=5, decimal_places=2, default=0.0)
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='active')
+    description = models.TextField(blank=True)
+    estimated_time = models.DecimalField(
+        max_digits=5,
+        decimal_places=2,
+        default=0.0
+    )
+    actual_time = models.DecimalField(
+        max_digits=5,
+        decimal_places=2,
+        default=0.0
+    )
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default='active'
+    )
     due_date = models.DateField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

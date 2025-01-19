@@ -125,7 +125,7 @@ When it came to beginning the project after conceptualisation I wanted to use an
 
 ## Development
 
-When it came to the development of the app, using a Django back end and a React front end provided a large amount of functionality. As this was the chosen tech stack, most of the development was done using a gitpod workspace and Google Chrome developer tools. Once I had a solid design and database model in place I began by developing the back end API in Django, carrying out full manual testing before deployment to ensure there were no errors or known bugs before beginning to develop the front end.
+When it came to the development of the app, using a Django back end and a React front end provided a large amount of functionality. As this was the chosen tech stack, most of the development was done using a gitpod workspace and Google Chrome developer tools. Once I had a solid design and database model in place I began by developing the back end API in Django, carrying out full manual testing before deployment to ensure there were no errors or known bugs before beginning to develop the front end. I also wrote some basic unit tests.
 
 ### Django API
 

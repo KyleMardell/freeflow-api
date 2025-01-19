@@ -8,6 +8,7 @@ class IsOwner(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
         return obj.owner == request.user
 
+
 class IsProjectOwner(permissions.BasePermission):
     """
     Base permission to check if the request user is the project owner

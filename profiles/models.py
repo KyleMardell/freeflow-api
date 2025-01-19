@@ -7,7 +7,11 @@ class Profile(models.Model):
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=255, blank=True)
     bio = models.TextField(blank=True)
-    email = models.EmailField(blank=True, max_length=254, null=True, unique=True)
+    email = models.EmailField(
+        blank=True,
+        max_length=254,
+        null=True, unique=True
+    )
     phone = models.CharField(max_length=15, blank=True)
     image = models.ImageField(
         upload_to='images/', default='../freeflow-default-profile_i3twde.png'
@@ -17,7 +21,7 @@ class Profile(models.Model):
 
     class Meta:
         ordering = ['-created_at']
-        
+
     def __str__(self):
         return f"{self.owner}'s profile"
 

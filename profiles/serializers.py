@@ -11,7 +11,6 @@ class ProfileSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     email = serializers.EmailField(required=False)
 
-
     class Meta:
         model = Profile
         fields = [

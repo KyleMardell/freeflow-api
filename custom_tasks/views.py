@@ -6,7 +6,7 @@ from .serializers import CustomTaskSerializer
 
 class CustomTaskList(generics.ListCreateAPIView):
     """
-    Lists custom tasks or create a custom task only 
+    Lists custom tasks or create a custom task only
     if you're the owner.
     Search by title or description
     Order by frequency, average or estimated time.

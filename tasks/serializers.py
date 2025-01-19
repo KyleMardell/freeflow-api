@@ -2,6 +2,7 @@ from django.contrib.humanize.templatetags.humanize import naturaltime
 from rest_framework import serializers
 from tasks.models import Task
 
+
 class TaskSerializer(serializers.ModelSerializer):
     """
     Task serializer.
@@ -16,7 +17,7 @@ class TaskSerializer(serializers.ModelSerializer):
         model = Task
         fields = [
             'id', 'custom_task', 'title',
-            'description', 'estimated_time', 
+            'description', 'estimated_time',
             'actual_time', 'due_date', 'status',
             'created_at', 'updated_at',
         ]
