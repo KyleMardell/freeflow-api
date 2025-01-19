@@ -44,8 +44,8 @@ if 'DEV' not in os.environ:
 
 REST_USE_JWT = True
 JWT_AUTH_SECURE = True
-JWT_AUTH_COOKIE = 'freeflow-auth'
-JWT_AUTH_REFRESH_COOKIE = 'freeflow-refresh-token'
+JWT_AUTH_COOKIE = 'my-app-auth'
+JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
 JWT_AUTH_SAMESITE = 'None'
 
 REST_AUTH_SERIALIZERS = {
@@ -68,6 +68,7 @@ ALLOWED_HOSTS = [
 
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-kylemardell-freeflowapi-81cqioz7wky.ws.codeinstitute-ide.net',
+    os.environ.get('ALLOWED_HOST'),
 ]
 
 
