@@ -59,7 +59,8 @@ REST_AUTH_SERIALIZERS = {
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEV' in os.environ
+# DEBUG = 'DEV' in os.environ
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-kylemardell-freeflowapi-81cqioz7wky.ws.codeinstitute-ide.net',
@@ -68,7 +69,6 @@ ALLOWED_HOSTS = [
 
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-kylemardell-freeflowapi-81cqioz7wky.ws.codeinstitute-ide.net',
-    os.environ.get('TRUSTED_ORIGIN'),
 ]
 
 
